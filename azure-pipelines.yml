@@ -1,0 +1,30 @@
+trigger:
+  - main   # or "master" if that's your default branch
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+  - checkout: self
+
+  # Install Node.js
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '18.x'   # Use Node 18 LTS (adjust if needed)
+
+  # Install dependencies
+  - script: |
+      npm ci
+    displayName: 'Install dependencies'
+
+  # Build React app
+  - script: |
+      npm run build
+    displayName: 'Build React app'
+
+  # Deploy to Azure Static Web Apps
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: "/"            # root of your repo
+      output_location: "build"     # CRA build output folder
+      azure_static_web_apps_api_token: $(swa_token)
