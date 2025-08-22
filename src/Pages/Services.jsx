@@ -27,7 +27,7 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 overflow-hidden"
+              className="bg-slate-300 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 overflow-hidden"
             >
               <div
                 className={`bg-gradient-to-r ${service.gradient} p-6 text-white`}
