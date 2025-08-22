@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Human Resource Solutions",
+    "description": "Comprehensive HR services to optimize your workforce",
+    "icon": "👥",
+    "features": [
+      "Recruitment Process Outsourcing",
+      "Staff Augmentation",
+      "Payroll Services"
+    ],
+    "gradient": "from-blue-500 to-blue-600"
+  },
+  {
+    "title": "Technology Solutions",
+    "description": "Cutting-edge IT solutions for digital transformation",
+    "icon": "💻",
+    "features": [
+      "DevOps",
+      "Solution Architecture",
+      "Web & App Development",
+      "UI/UX"
+    ],
+    "gradient": "from-purple-500 to-purple-600"
+  },
+  {
+    "title": "Digital Marketing Solutions",
+    "description": "Strategic marketing to amplify your digital presence",
+    "icon": "📱",
+    "features": [
+      "Social Media Advertising",
+      "SEO Optimization",
+      "Content Marketing"
+    ],
+    "gradient": "from-green-500 to-green-600"
+  },
+  {
+    "title": "Business Consulting Solutions",
+    "description": "Strategic guidance to drive business excellence",
+    "icon": "📊",
+    "features": [
+      "Financial Advisory",
+      "Operations Optimization",
+      "Strategic Consulting"
+    ],
+    "gradient": "from-orange-500 to-orange-600"
+  }
+]
