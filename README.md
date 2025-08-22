@@ -137,16 +137,6 @@ barenexus-website/
 1. Build the project: `npm run build`
 2. Drag and drop the `build` folder to [Netlify](https://netlify.com)
 
-### Vercel
-1. Push code to GitHub
-2. Connect repository to [Vercel](https://vercel.com)
-3. Deploy automatically
-
-### GitHub Pages
-1. Install gh-pages: `npm install --save-dev gh-pages`
-2. Add to package.json scripts: `"deploy": "gh-pages -d build"`
-3. Run: `npm run deploy`
-
 ## 🛠 Technologies Used
 
 - **React.js** - Frontend framework
