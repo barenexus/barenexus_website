@@ -36,3 +36,5 @@ export const getSectors = () => fetchJSON("sectors.json");
 export const getServices = () => fetchJSON("services.json");
 
 export const getFormData = () => fetchJSON("form.json");
+
+export const getClientsData = () => fetchJSON("clients.json");
