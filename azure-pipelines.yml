@@ -3,8 +3,6 @@ trigger:
 
 pool:
   name: 'Ubuntu'              # Your self-hosted pool name
-  demands:
-    - Agent.Name -equals vm-pipeline-agent   # Ensures this specific agent runs
 
 steps:
   - checkout: self
