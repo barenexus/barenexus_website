@@ -2,7 +2,7 @@ trigger:
   - master   # or "master" if that's your default branch
 
 pool:
-  name: Default
+  vmImage: 'ubuntu-latest'
 
 steps:
   - checkout: self
