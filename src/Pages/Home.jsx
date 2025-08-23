@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Services from "./Services";
 import Contact from "./Contact";
 import "../App.css";
