@@ -2,7 +2,9 @@ trigger:
   - master   # or "master" if that's your default branch
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: 'Ubuntu'              # Your self-hosted pool name
+  demands:
+    - Agent.Name -equals vm-pipeline-agent   # Ensures this specific agent runs
 
 steps:
   - checkout: self
