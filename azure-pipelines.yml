@@ -6,6 +6,7 @@ pool:
 
 steps:
   - checkout: self
+    clean: true
 
   # Use Node.js 20
   - task: NodeTool@0
