@@ -2,7 +2,7 @@ trigger:
   - master   # or "master" if that's your default branch
 
 pool:
-  name: Default
+  name: Barenexus_Pool
 
 steps:
   - checkout: self
@@ -10,11 +10,12 @@ steps:
   # Install Node.js
   - task: NodeTool@0
     inputs:
-      versionSpec: '18.x'   # Use Node 18 LTS (adjust if needed)
+      versionSpec: '20.x'   # Use Node 18 LTS (adjust if needed)
+    displayName: 'Use Node.js 20'
 
   # Install dependencies
   - script: |
-      npm install
+      npm install --legacy-peer-deps
     displayName: 'Install dependencies'
 
   # Build React app
