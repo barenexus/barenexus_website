@@ -2,7 +2,7 @@ trigger:
   - master   # or "master" if that's your default branch
 
 pool:
-  name: 'Ubuntu'              # Your self-hosted pool name
+  vmImage: 'ubuntu-latest'
 
 steps:
   - checkout: self
