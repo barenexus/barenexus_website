@@ -8,6 +8,13 @@ steps:
   - checkout: self
     clean: true
 
+    # Optional: Fix permissions if needed
+  - script: |
+      echo "Fixing workspace permissions..."
+      sudo chown -R $(whoami) $(System.DefaultWorkingDirectory)
+      sudo chmod -R u+rwX $(System.DefaultWorkingDirectory)
+    displayName: 'Fix workspace permissions'
+
   # Use Node.js 20
   - task: NodeTool@0
     inputs:
