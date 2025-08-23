@@ -10,11 +10,11 @@ steps:
   # Install Node.js
   - task: NodeTool@0
     inputs:
-      versionSpec: '18.x'   # Use Node 18 LTS (adjust if needed)
+      versionSpec: '20.x'   # Use Node 18 LTS (adjust if needed)
 
   # Install dependencies
   - script: |
-      npm install
+      npm install --legacy-peer-deps
     displayName: 'Install dependencies'
 
   # Build React app
