@@ -10,9 +10,10 @@ steps:
 
     # Optional: Fix permissions if needed
   - script: |
+      AGENT_DIR="/home/agent/myagent"
       echo "Fixing workspace permissions..."
-      sudo chown -R $(whoami) $(System.DefaultWorkingDirectory)
-      sudo chmod -R u+rwX $(System.DefaultWorkingDirectory)
+      sudo chown -R $(whoami) $AGENT_DIR/_work || true
+      sudo chmod -R u+rwX $AGENT_DIR/_work || true
     displayName: 'Fix workspace permissions'
 
   # Use Node.js 20
