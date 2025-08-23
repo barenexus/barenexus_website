@@ -7,25 +7,29 @@ pool:
 steps:
   - checkout: self
 
-  # Install Node.js
+  # Use Node.js 20
   - task: NodeTool@0
     inputs:
-      versionSpec: '20.x'   # Use Node 18 LTS (adjust if needed)
+      versionSpec: '20.x'
     displayName: 'Use Node.js 20'
 
   # Install dependencies
   - script: |
-      npm install --legacy-peer-deps
+      npm ci --legacy-peer-deps
     displayName: 'Install dependencies'
+    workingDirectory: $(System.DefaultWorkingDirectory)
 
   # Build React app
   - script: |
       npm run build
     displayName: 'Build React app'
+    workingDirectory: $(System.DefaultWorkingDirectory)
 
-  # Deploy to Azure Static Web Apps
   - task: AzureStaticWebApp@0
     inputs:
-      app_location: "/"            # root of your repo
-      output_location: "build"     # CRA build output folder
+      app_location: "/"
+      output_location: "build"
       azure_static_web_apps_api_token: $(swa_token)
+    env:
+      NPM_CONFIG_LEGACY_PEER_DEPS: true
+    displayName: 'Deploy to Azure Static Web App'
