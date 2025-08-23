@@ -25,10 +25,11 @@ steps:
     displayName: 'Build React app'
     workingDirectory: $(System.DefaultWorkingDirectory)
 
-  # Deploy to Azure Static Web Apps
   - task: AzureStaticWebApp@0
     inputs:
-      app_location: "/"            # root of your repo
-      output_location: "build"     # CRA build output folder
+      app_location: "/"
+      output_location: "build"
       azure_static_web_apps_api_token: $(swa_token)
+    env:
+      NPM_CONFIG_LEGACY_PEER_DEPS: true
     displayName: 'Deploy to Azure Static Web App'
