@@ -1,38 +1,43 @@
 trigger:
-  - master  # or your default branch
+  - master
 
 pool:
-  name: Barenexus_Pool   # your self-hosted agent pool
+  name: Barenexus_Pool
 
 steps:
-  # 1. Checkout the repo
+  # 1. Checkout with clean to prevent stale files
   - checkout: self
     clean: true
 
-  # 2. Use Node.js 20
+  # 2. Fix permissions (permanent safeguard)
+  - script: |
+      echo "Fixing permissions for agent user..."
+      sudo chown -R agent:agent $(System.DefaultWorkingDirectory)
+      sudo chmod -R u+rwX $(System.DefaultWorkingDirectory)
+    displayName: 'Ensure correct permissions'
+
+  # 3. Use Node.js 20
   - task: NodeTool@0
     inputs:
       versionSpec: '20.x'
     displayName: 'Use Node.js 20'
 
-  # 3. Install npm dependencies
-  - script: |
-      npm ci --legacy-peer-deps
+  # 4. Install dependencies
+  - script: npm ci --legacy-peer-deps
     workingDirectory: $(System.DefaultWorkingDirectory)
     displayName: 'Install dependencies'
 
-  # 4. Build React app
-  - script: |
-      npm run build
+  # 5. Build React app
+  - script: npm run build
     workingDirectory: $(System.DefaultWorkingDirectory)
     displayName: 'Build React app'
 
-  # 5. Deploy to Azure Static Web App
+  # 6. Deploy to Azure Static Web App
   - task: AzureStaticWebApp@0
     inputs:
-      app_location: "/"                # folder with your source code
-      output_location: "build"         # React build folder
-      azure_static_web_apps_api_token: $(swa_token)  # secret variable
+      app_location: "/"
+      output_location: "build"
+      azure_static_web_apps_api_token: $(swa_token)
     env:
       NPM_CONFIG_LEGACY_PEER_DEPS: true
     displayName: 'Deploy to Azure Static Web App'
