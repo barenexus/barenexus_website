@@ -36,7 +36,7 @@ steps:
   #     npm config set prefix '~/.npm-global'
   #     export PATH=$HOME/.npm-global/bin:$PATH
   #     echo "NPM global prefix set to ~/.npm-global"
-  #   displayName: 'Configure npm global prefix to avoid root files'
+  #   displayName: 'Configure npm global prefix to avoid root files' 
 
   # ------------------------
   # 4. Install dependencies locally
