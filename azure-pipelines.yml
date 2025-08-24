@@ -8,11 +8,11 @@ steps:
   # ------------------------
   # 0. Ensure workspace permissions
   # ------------------------
-  - script: |
-      echo "Fixing workspace permissions..."
-      sudo chown -R agent:agent $(System.DefaultWorkingDirectory)
-      sudo chmod -R u+rwX $(System.DefaultWorkingDirectory)
-    displayName: 'Fix workspace permissions before checkout'
+  # - script: |
+  #     echo "Fixing workspace permissions..."
+  #     sudo chown -R agent:agent $(System.DefaultWorkingDirectory)
+  #     sudo chmod -R u+rwX $(System.DefaultWorkingDirectory)
+  #   displayName: 'Fix workspace permissions before checkout'
 
   # ------------------------
   # 1. Checkout code
@@ -31,12 +31,12 @@ steps:
   # ------------------------
   # 3. Configure npm for local installs (optional but recommended)
   # ------------------------
-  # - script: |
-  #     mkdir -p ~/.npm-global
-  #     npm config set prefix '~/.npm-global'
-  #     export PATH=$HOME/.npm-global/bin:$PATH
-  #     echo "NPM global prefix set to ~/.npm-global"
-  #   displayName: 'Configure npm global prefix to avoid root files'
+  - script: |
+      mkdir -p ~/.npm-global
+      npm config set prefix '~/.npm-global'
+      export PATH=$HOME/.npm-global/bin:$PATH
+      echo "NPM global prefix set to ~/.npm-global"
+    displayName: 'Configure npm global prefix to avoid root files'
 
   # ------------------------
   # 4. Install dependencies locally
