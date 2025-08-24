@@ -5,34 +5,58 @@ pool:
   name: Barenexus_Pool
 
 steps:
-  # 1. Checkout with clean to prevent stale files
+  # ------------------------
+  # 0. Ensure workspace permissions
+  # ------------------------
+  - script: |
+      echo "Fixing workspace permissions..."
+      sudo chown -R agent:agent $(System.DefaultWorkingDirectory)
+      sudo chmod -R u+rwX $(System.DefaultWorkingDirectory)
+    displayName: 'Fix workspace permissions before checkout'
+
+  # ------------------------
+  # 1. Checkout code
+  # ------------------------
   - checkout: self
     clean: true
 
-  # 2. Fix permissions (permanent safeguard)
-  - script: |
-      echo "Fixing permissions for agent user..."
-      sudo chown -R agent:agent $(System.DefaultWorkingDirectory)
-      sudo chmod -R u+rwX $(System.DefaultWorkingDirectory)
-    displayName: 'Ensure correct permissions'
-
-  # 3. Use Node.js 20
+  # ------------------------
+  # 2. Use Node.js 20
+  # ------------------------
   - task: NodeTool@0
     inputs:
       versionSpec: '20.x'
     displayName: 'Use Node.js 20'
 
-  # 4. Install dependencies
-  - script: npm ci --legacy-peer-deps
-    workingDirectory: $(System.DefaultWorkingDirectory)
+  # ------------------------
+  # 3. Configure npm for local installs (optional but recommended)
+  # ------------------------
+  - script: |
+      mkdir -p ~/.npm-global
+      npm config set prefix '~/.npm-global'
+      export PATH=$HOME/.npm-global/bin:$PATH
+      echo "NPM global prefix set to ~/.npm-global"
+    displayName: 'Configure npm global prefix to avoid root files'
+
+  # ------------------------
+  # 4. Install dependencies locally
+  # ------------------------
+  - script: |
+      npm ci --legacy-peer-deps
     displayName: 'Install dependencies'
-
-  # 5. Build React app
-  - script: npm run build
     workingDirectory: $(System.DefaultWorkingDirectory)
-    displayName: 'Build React app'
 
+  # ------------------------
+  # 5. Build React app
+  # ------------------------
+  - script: |
+      npm run build
+    displayName: 'Build React app'
+    workingDirectory: $(System.DefaultWorkingDirectory)
+
+  # ------------------------
   # 6. Deploy to Azure Static Web App
+  # ------------------------
   - task: AzureStaticWebApp@0
     inputs:
       app_location: "/"
