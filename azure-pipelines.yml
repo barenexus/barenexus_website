@@ -1,44 +1,38 @@
 trigger:
-  - master   # or "master" if that's your default branch
+  - master  # or your default branch
 
 pool:
-  name: Barenexus_Pool
+  name: Barenexus_Pool   # your self-hosted agent pool
 
 steps:
+  # 1. Checkout the repo
   - checkout: self
     clean: true
 
-    # Optional: Fix permissions if needed
-  - script: |
-      AGENT_DIR="/home/agent/myagent"
-      echo "Fixing workspace permissions..."
-      sudo chown -R $(whoami) $AGENT_DIR/_work || true
-      sudo chmod -R u+rwX $AGENT_DIR/_work || true
-    displayName: 'Fix workspace permissions'
-
-  # Use Node.js 20
+  # 2. Use Node.js 20
   - task: NodeTool@0
     inputs:
       versionSpec: '20.x'
     displayName: 'Use Node.js 20'
 
-  # Install dependencies
+  # 3. Install npm dependencies
   - script: |
       npm ci --legacy-peer-deps
-    displayName: 'Install dependencies'
     workingDirectory: $(System.DefaultWorkingDirectory)
+    displayName: 'Install dependencies'
 
-  # Build React app
+  # 4. Build React app
   - script: |
       npm run build
-    displayName: 'Build React app'
     workingDirectory: $(System.DefaultWorkingDirectory)
+    displayName: 'Build React app'
 
+  # 5. Deploy to Azure Static Web App
   - task: AzureStaticWebApp@0
     inputs:
-      app_location: "/"
-      output_location: "build"
-      azure_static_web_apps_api_token: $(swa_token)
+      app_location: "/"                # folder with your source code
+      output_location: "build"         # React build folder
+      azure_static_web_apps_api_token: $(swa_token)  # secret variable
     env:
       NPM_CONFIG_LEGACY_PEER_DEPS: true
     displayName: 'Deploy to Azure Static Web App'
