@@ -8,11 +8,11 @@ steps:
   # ------------------------
   # 0. Ensure workspace permissions
   # ------------------------
-  - script: |
-      echo "Fixing workspace permissions..."
-      sudo chown -R agent:agent $(System.DefaultWorkingDirectory)
-      sudo chmod -R u+rwX $(System.DefaultWorkingDirectory)
-    displayName: 'Fix workspace permissions before checkout'
+  # - script: |
+  #     echo "Fixing workspace permissions..."
+  #     sudo chown -R agent:agent $(System.DefaultWorkingDirectory)
+  #     sudo chmod -R u+rwX $(System.DefaultWorkingDirectory)
+  #   displayName: 'Fix workspace permissions before checkout'
 
   # ------------------------
   # 1. Checkout code
