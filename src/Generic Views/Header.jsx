@@ -23,19 +23,19 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-sm shadow-lg" : "bg-white/90"
+        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-gradient-to-r from-white/90 to-gray-100/90"
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
           {/* Logo */}
-          <div className="flex-shrink-0 flex flex-row gap-3 align-middle">
+          <div className="flex-shrink-0 flex flex-row gap-3 items-center">
             <img
               src="/Logo without name.png"
               alt="Company Logo"
-              className="h-8"
+              className="h-10 w-auto drop-shadow-md hover:scale-105 transition-transform duration-300"
             />
-            <h1 className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            <h1 className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               <Link to="/">BareNexus Consultants</Link>
             </h1>
           </div>
@@ -45,19 +45,19 @@ const Header = () => {
             <nav className="ml-10 flex items-baseline space-x-8">
               <Link
                 to="/about"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 capitalize"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-200 capitalize"
               >
                 About Us
               </Link>
               <Link
                 to="/services"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 capitalize"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-200 capitalize"
               >
                 Our Services
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200 capitalize"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-200 capitalize"
               >
                 Contact Us
               </Link>
@@ -68,7 +68,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600 p-2"
+              className="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600 p-2 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition"
             >
               <svg
                 className="h-6 w-6"
@@ -98,29 +98,29 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden">
-            <nav className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-sm rounded-lg mt-2 shadow-lg">
+          <div className="md:hidden animate-fadeIn">
+            <nav className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
               <Link
                 to="/"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-colors duration-200"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-all duration-200"
               >
                 Home
               </Link>
               <Link
                 to="/services"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-colors duration-200"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-all duration-200"
               >
                 Services
               </Link>
               <Link
                 to="/about"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-colors duration-200"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-all duration-200"
               >
                 About
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-colors duration-200"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-all duration-200"
               >
                 Contact Us
               </Link>

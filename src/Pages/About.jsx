@@ -12,24 +12,24 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-gray-50">
+    <section id="about" className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-100">
       <div className="container mt-16 mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
             About BareNexus
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Empowering businesses with innovative solutions and strategic
-            expertise
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            Empowering businesses with innovative solutions and strategic expertise
           </p>
         </div>
 
         {/* Vision and Mission Cards */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Vision Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
                 <svg
                   className="w-8 h-8 text-white"
                   fill="none"
@@ -50,23 +50,18 @@ const About = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Our Vision
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
             </div>
             <p className="text-gray-700 leading-relaxed">
-              To be the most trusted partner for businesses worldwide by
-              empowering them with exceptional talent, innovative IT solutions,
-              and transformative business strategies that drive sustainable
-              growth, operational excellence, and competitive advantage in an
-              ever-evolving digital landscape.
+              To be the most trusted partner for businesses worldwide by empowering them with exceptional talent,
+              innovative IT solutions, and transformative business strategies that drive sustainable growth and excellence.
             </p>
           </div>
 
           {/* Mission Card */}
-          <div className="bg-gradient-to-br from-purple-200 to-purple-300 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div className="bg-gradient-to-br from-purple-100 to-purple-200 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500">
             <div className="text-center mb-6">
-              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
                 <svg
                   className="w-8 h-8 text-white"
                   fill="none"
@@ -81,29 +76,24 @@ const About = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Our Mission
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
             </div>
-            <ul className="text-gray-700 space-y-2">
+            <ul className="text-gray-700 space-y-3">
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Unlock true performance by identifying gaps and providing
-                specialized training
+                Unlock true performance by identifying gaps and providing specialized training.
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Empower businesses by delivering customized manpower solutions
+                Empower businesses by delivering customized manpower solutions.
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Provide innovative IT services and strategic business
-                optimization
+                Provide innovative IT services and strategic business optimization.
               </li>
               <li className="flex items-start">
                 <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Drive operational excellence and connect organizations with
-                right talent
+                Drive operational excellence and connect organizations with the right talent.
               </li>
             </ul>
           </div>
@@ -111,19 +101,19 @@ const About = () => {
 
         {/* Sector Expertise */}
         <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
             Empowering Every Sector with Innovation
           </h3>
           <p className="text-lg text-gray-600 mb-8">
             No Sector Limits. Only Solutions.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {sectors.map((sector, index) => (
               <div
                 key={index}
-                className="bg-gray-200 hover:bg-blue-200 p-4 rounded-lg transition-colors duration-200 cursor-default"
+                className="bg-gradient-to-tr from-gray-100 to-gray-200 hover:from-blue-100 hover:to-purple-100 p-4 rounded-lg shadow-sm hover:shadow-md transform hover:scale-105 transition-all duration-300 cursor-default"
               >
-                <p className="text-sm font-medium text-gray-700">{sector}</p>
+                <p className="text-sm font-medium text-gray-800">{sector}</p>
               </div>
             ))}
           </div>
