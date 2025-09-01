@@ -7,7 +7,12 @@ module.exports = async function (context, req) {
 
     // Basic validation
     if (!name || !email || !message) {
-      return { status: 400, body: { success: false, error: "Missing required fields" } };
+      context.res = {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+        body: { success: false, error: "Missing required fields" }
+      };
+      return;
     }
 
     // Configure SendGrid
@@ -18,7 +23,12 @@ module.exports = async function (context, req) {
 
     if (!apiKey || !toEmail || !fromEmail) {
       context.log.error("Missing SendGrid configuration.");
-      return { status: 500, body: { success: false, error: "Email not configured" } };
+      context.res = {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+        body: { success: false, error: "Email not configured" }
+      };
+      return;
     }
 
     sgMail.setApiKey(apiKey);
@@ -43,27 +53,19 @@ module.exports = async function (context, req) {
 
     await sgMail.send({ to: toEmail, from: fromEmail, subject, text: plain, html });
 
-    // Optional auto-reply to the sender
-    // await sgMail.send({ to: email, from: fromEmail, subject: "We got your message",
-    //   text: "Thanks! Our team will contact you soon.", html: "<p>Thanks! Our team will contact you soon.</p>" });
-
-    // return { status: 200, body: { success: true, message: "Form submitted and email sent successfully!" } };
-    return {
+    // ✅ Always respond using context.res
+    context.res = {
       status: 200,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ success: true, message: "Form submitted and email sent successfully!" }),
+      body: { success: true, message: "Form submitted and email sent successfully!" }
     };
-    
   } catch (err) {
-    // Common errors: verified sender mismatch, domain not authenticated, daily limit reached
     context.log.error("SendGrid error:", err?.response?.body || err);
-    // return { status: 500, body: { success: false, error: "Could not send email" } };
-    return {
+    context.res = {
       status: 500,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ success: false, error: "Could not send email" }),
+      body: { success: false, error: "Could not send email" }
     };
-    
   }
 };
 
