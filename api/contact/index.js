@@ -47,11 +47,23 @@ module.exports = async function (context, req) {
     // await sgMail.send({ to: email, from: fromEmail, subject: "We got your message",
     //   text: "Thanks! Our team will contact you soon.", html: "<p>Thanks! Our team will contact you soon.</p>" });
 
-    return { status: 200, body: { success: true, message: "Form submitted and email sent successfully!" } };
+    // return { status: 200, body: { success: true, message: "Form submitted and email sent successfully!" } };
+    return {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ success: true, message: "Form submitted and email sent successfully!" }),
+    };
+    
   } catch (err) {
     // Common errors: verified sender mismatch, domain not authenticated, daily limit reached
     context.log.error("SendGrid error:", err?.response?.body || err);
-    return { status: 500, body: { success: false, error: "Could not send email" } };
+    // return { status: 500, body: { success: false, error: "Could not send email" } };
+    return {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ success: false, error: "Could not send email" }),
+    };
+    
   }
 };
 
