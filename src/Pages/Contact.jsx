@@ -18,12 +18,27 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! We will get back to you soon.");
-    setFormData({ name: "", email: "", company: "", message: "" });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const result = await res.json();
+      if (result.success) {
+        alert("✅ Thank you! We’ll be in touch soon.");
+        setFormData({ name: "", email: "", company: "", message: "" });
+      } else {
+        alert("⚠️ " + (result.error || "Something went wrong"));
+      }
+    } catch (err) {
+      console.error(err);
+      alert("❌ Failed to send message. Please try again later.");
+    }
   };
+  
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-blue-50 via-white to-purple-50">
