@@ -11,32 +11,40 @@ const Services = () => {
       .catch((err) => console.error("Error loading users:", err));
   }, []);
 
+  // Predefined gradient color sets for cards
+  const gradients = [
+    "from-blue-500 to-blue-700",
+    "from-purple-500 to-purple-700",
+    "from-green-500 to-green-700",
+    "from-pink-500 to-red-600",
+    "from-orange-500 to-yellow-600",
+    "from-indigo-500 to-indigo-700"
+  ];
+
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-100">
       <div className="container mt-16 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
             Our Core Services
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Comprehensive solutions tailored to drive your business forward
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <div
               key={index}
-              className="bg-slate-300 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:-translate-y-2 overflow-hidden"
+              className="rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 overflow-hidden"
             >
-              <div
-                className={`bg-gradient-to-r ${service.gradient} p-6 text-white`}
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+              <div className={`bg-gradient-to-r ${gradients[index % gradients.length]} p-8 text-white`}>
+                <div className="text-5xl mb-4">{service.icon}</div>
+                <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
                 <p className="text-white/90">{service.description}</p>
               </div>
-              <div className="p-6">
+              <div className="p-6 bg-gradient-to-tr from-gray-50 to-gray-100">
                 <ul className="space-y-3">
                   {service.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center">
