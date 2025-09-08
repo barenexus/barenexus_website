@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getFormData } from "../services/dataServices";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({});
@@ -8,6 +10,9 @@ const Contact = () => {
     getFormData()
       .then((data) => setFormData(data))
       .catch((err) => console.error("Error loading users:", err));
+
+    // Initialize AOS
+    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
   }, []);
 
   const handleInputChange = (e) => {
@@ -52,7 +57,7 @@ const Contact = () => {
       className="py-20 bg-gradient-to-b from-blue-50 via-white to-purple-50"
     >
       <div className="mx-auto mt-16 px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
             Get In Touch
           </h2>
@@ -63,13 +68,13 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-8" data-aos="fade-right">
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Contact Information
               </h3>
               <div className="space-y-6">
-                <div className="flex items-center">
+                <div className="flex items-center" data-aos="fade-up">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mr-4 shadow-md">
                     <svg
                       className="w-6 h-6 text-white"
@@ -96,7 +101,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center">
+                <div className="flex items-center" data-aos="fade-up" data-aos-delay="200">
                   <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-4 shadow-md">
                     <svg
                       className="w-6 h-6 text-white"
@@ -123,7 +128,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center">
+                <div className="flex items-center" data-aos="fade-up" data-aos-delay="400">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-700 to-purple-700 rounded-lg flex items-center justify-center mr-4 shadow-md">
                     <svg
                       className="w-6 h-6 text-white"
@@ -148,12 +153,15 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
+          <div
+            className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+            data-aos="zoom-in"
+          >
             <h3 className="text-2xl font-bold text-gray-900 mb-6">
               Send us a Message
             </h3>
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
+              <div data-aos="fade-up">
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 mb-2"
@@ -171,7 +179,7 @@ const Contact = () => {
                   placeholder="Your full name"
                 />
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="200">
                 <label
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700 mb-2"
@@ -189,7 +197,7 @@ const Contact = () => {
                   placeholder="your.email@company.com"
                 />
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="400">
                 <label
                   htmlFor="company"
                   className="block text-sm font-medium text-gray-700 mb-2"
@@ -206,7 +214,7 @@ const Contact = () => {
                   placeholder="Your company name"
                 />
               </div>
-              <div>
+              <div data-aos="fade-up" data-aos-delay="600">
                 <label
                   htmlFor="message"
                   className="block text-sm font-medium text-gray-700 mb-2"
@@ -227,6 +235,8 @@ const Contact = () => {
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg"
+                data-aos="fade-up"
+                data-aos-delay="800"
               >
                 Send Message
               </button>

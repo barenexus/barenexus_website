@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../App.css";
 import { getSectors } from "../services/dataServices";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const About = () => {
   const [sectors, setSectors] = useState([]);
@@ -9,25 +11,35 @@ const About = () => {
     getSectors()
       .then((data) => setSectors(data))
       .catch((err) => console.error("Error loading users:", err));
+
+    // Initialize AOS
+    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-100">
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-b from-gray-50 via-white to-gray-100"
+    >
       <div className="container mt-16 mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
             About BareNexus
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            Empowering businesses with innovative solutions and strategic expertise
+            Empowering businesses with innovative solutions and strategic
+            expertise
           </p>
         </div>
 
         {/* Vision and Mission Cards */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Vision Card */}
-          <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500">
+          <div
+            className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500"
+            data-aos="fade-right"
+          >
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
                 <svg
@@ -50,16 +62,23 @@ const About = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Our Vision
+              </h3>
             </div>
             <p className="text-gray-700 leading-relaxed">
-              To be the most trusted partner for businesses worldwide by empowering them with exceptional talent,
-              innovative IT solutions, and transformative business strategies that drive sustainable growth and excellence.
+              To be the most trusted partner for businesses worldwide by
+              empowering them with exceptional talent, innovative IT solutions,
+              and transformative business strategies that drive sustainable
+              growth and excellence.
             </p>
           </div>
 
           {/* Mission Card */}
-          <div className="bg-gradient-to-br from-purple-100 to-purple-200 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500">
+          <div
+            className="bg-gradient-to-br from-purple-100 to-purple-200 p-8 rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500"
+            data-aos="fade-left"
+          >
             <div className="text-center mb-6">
               <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
                 <svg
@@ -76,31 +95,36 @@ const About = () => {
                   />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Our Mission
+              </h3>
             </div>
             <ul className="text-gray-700 space-y-3">
-              <li className="flex items-start">
+              <li className="flex items-start" data-aos="fade-up">
                 <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Unlock true performance by identifying gaps and providing specialized training.
+                Unlock true performance by identifying gaps and providing
+                specialized training.
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start" data-aos="fade-up" data-aos-delay="200">
                 <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                 Empower businesses by delivering customized manpower solutions.
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start" data-aos="fade-up" data-aos-delay="400">
                 <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Provide innovative IT services and strategic business optimization.
+                Provide innovative IT services and strategic business
+                optimization.
               </li>
-              <li className="flex items-start">
+              <li className="flex items-start" data-aos="fade-up" data-aos-delay="600">
                 <span className="w-2 h-2 bg-purple-600 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                Drive operational excellence and connect organizations with the right talent.
+                Drive operational excellence and connect organizations with the
+                right talent.
               </li>
             </ul>
           </div>
         </div>
 
         {/* Sector Expertise */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-12" data-aos="zoom-in">
           <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 mb-4">
             Empowering Every Sector with Innovation
           </h3>
@@ -112,6 +136,8 @@ const About = () => {
               <div
                 key={index}
                 className="bg-gradient-to-tr from-gray-100 to-gray-200 hover:from-blue-100 hover:to-purple-100 p-4 rounded-lg shadow-sm hover:shadow-md transform hover:scale-105 transition-all duration-300 cursor-default"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               >
                 <p className="text-sm font-medium text-gray-800">{sector}</p>
               </div>

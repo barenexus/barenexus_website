@@ -1,27 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const PrivacyPolicy = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
+  }, []);
+
   return (
     <div class="privacy-policy-page p-[120px] text-white bg-slate-600 overflow-hidden">
-      <h1 class="text-[48px] font-bold">Privacy Policy</h1>
-      <div class="mt-10">
-        <p class="text-xl">
-          BareNexus Consultants operates the barenexus.com website. This Privacy Policy
-          outlines how we collect, use, and disclose personal information when
-          you use our website and the choices you have regarding that
+      <h1 class="text-[48px] font-bold" data-aos="fade-up">
+        Privacy Policy
+      </h1>
+      <div class="mt-10 space-y-12">
+        <p class="text-xl" data-aos="fade-up" data-aos-delay="200">
+          BareNexus Consultants operates the barenexus.com website. This Privacy
+          Policy outlines how we collect, use, and disclose personal information
+          when you use our website and the choices you have regarding that
           information.
         </p>
-        <p class="text-xl mt-12 mb-8">Information We Collect:</p>
-        <div class="flex flex-col gap-8">
+
+        <div data-aos="fade-left">
+          <p class="text-xl mb-4 font-bold">Information We Collect:</p>
           <p class="text-xl">
             We may collect personal information such as your name, email
             address, phone number, and company name when you fill out forms on
             our website or communicate with us via email.
           </p>
         </div>
-        <p class="text-xl mt-12 mb-8">How We Use Your Information:</p>
-        <div class="flex flex-col gap-8">
+
+        <div data-aos="fade-right">
+          <p class="text-xl mb-4 font-bold">How We Use Your Information:</p>
           <p class="text-xl">
             We use the information we collect to provide and improve our
             services, respond to inquiries, and communicate with you about our
@@ -30,8 +40,9 @@ const PrivacyPolicy = () => {
             communications that we believe may be of interest to you.
           </p>
         </div>
-        <p class="text-xl mt-12 mb-8">Information Sharing:</p>
-        <div class="flex flex-col gap-8">
+
+        <div data-aos="fade-up">
+          <p class="text-xl mb-4 font-bold">Information Sharing:</p>
           <p class="text-xl">
             We do not sell, trade, or otherwise transfer your personal
             information to third parties without your consent, except as
@@ -41,8 +52,9 @@ const PrivacyPolicy = () => {
             parties agree to keep this information confidential.
           </p>
         </div>
-        <p class="text-xl mt-12 mb-8">Data Security:</p>
-        <div class="flex flex-col gap-8">
+
+        <div data-aos="fade-left">
+          <p class="text-xl mb-4 font-bold">Data Security:</p>
           <p class="text-xl">
             We take reasonable measures to protect your personal information
             from unauthorized access, use, or disclosure. However, no method of
@@ -50,8 +62,9 @@ const PrivacyPolicy = () => {
             and we cannot guarantee absolute security.
           </p>
         </div>
-        <p class="text-xl mt-12 mb-8">Your Choices:</p>
-        <div class="flex flex-col gap-8">
+
+        <div data-aos="fade-up">
+          <p class="text-xl mb-4 font-bold">Your Choices:</p>
           <p class="text-xl">
             You may choose not to provide certain personal information, but this
             may limit your ability to use certain features of the Service. You
@@ -59,8 +72,9 @@ const PrivacyPolicy = () => {
             by following the instructions provided in the emails we send you.
           </p>
         </div>
-        <p class="text-xl mt-12 mb-8">Childrens Privacy:</p>
-        <div class="flex flex-col gap-8">
+
+        <div data-aos="fade-right">
+          <p class="text-xl mb-4 font-bold">Children's Privacy:</p>
           <p class="text-xl">
             Our website is not directed to individuals under the age of 18, and
             we do not knowingly collect personal information from children under
@@ -69,23 +83,22 @@ const PrivacyPolicy = () => {
             so that we can take appropriate action.
           </p>
         </div>
-        <p class="text-xl mt-12 mb-8">Changes to This Privacy Policy:</p>
-        <div class="flex flex-col gap-8">
+
+        <div data-aos="fade-left">
+          <p class="text-xl mb-4 font-bold">Changes to This Privacy Policy:</p>
           <p class="text-xl">
             We may update our Privacy Policy from time to time. We will notify
             you of any changes by posting the new Privacy Policy on this page.
           </p>
         </div>
-        <p class="text-xl mt-12 mb-8">Contact Us:</p>
-        <div class="flex flex-col gap-8">
+
+        <div data-aos="fade-up">
+          <p class="text-xl mb-4 font-bold">Contact Us:</p>
           <p class="text-xl">
             If you have any questions about this Privacy Policy, please contact
             us at info@barenexus.com
           </p>
         </div>
-        <p class="text-xl mt-12 mb-8">
-          By using our website, you consent to the terms of this Privacy Policy.
-        </p>
       </div>
     </div>
   );
