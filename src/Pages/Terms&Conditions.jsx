@@ -9,30 +9,46 @@ const TermsConditions = () => {
   }, []);
 
   return (
-    <div class="privacy-policy-page p-[120px] text-white bg-slate-600 overflow-hidden">
-      <h1 class="text-[48px] font-bold" data-aos="fade-up">
+    <div className="terms-page px-6 py-16 sm:px-12 sm:py-20 lg:px-24 lg:py-28 xl:px-32 xl:py-32 text-white bg-slate-600 overflow-hidden">
+      <h1
+        className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center"
+        data-aos="fade-up"
+      >
         Terms of Services
       </h1>
-      <div class="mt-10 space-y-12">
-        <p class="text-xl" data-aos="fade-up">
+
+      <div className="mt-10 space-y-12">
+        <p
+          className="text-base sm:text-lg lg:text-xl leading-relaxed"
+          data-aos="fade-up"
+        >
           Please read these Terms of Service carefully before using the
           barenexus.com website operated by BareNexus Consultants Pvt Ltd.
         </p>
-        <p class="text-xl" data-aos="fade-up" data-aos-delay="200">
+
+        <p
+          className="text-base sm:text-lg lg:text-xl leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
           Your access to and use of the Service is conditioned on your
           acceptance of and compliance with these Terms. These Terms apply to
           all visitors, users, and others who access or use the Service.
         </p>
-        <p class="text-xl" data-aos="fade-up" data-aos-delay="400">
+
+        <p
+          className="text-base sm:text-lg lg:text-xl leading-relaxed"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
           By accessing or using the Service, you agree to be bound by these
           Terms. If you disagree with any part of the terms, then you may not
           access the Service.
         </p>
 
         <div data-aos="fade-left">
-          <p class="text-xl mb-4 font-bold">Use of the Service:</p>
-          <p class="text-xl">
-            {" "}
+          <p className="text-lg sm:text-xl mb-4 font-bold">Use of the Service:</p>
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
             You are granted a non-exclusive, non-transferable, limited license
             to access and use the Service solely for your personal and internal
             business purposes. You may not use the Service for any illegal or
@@ -42,8 +58,8 @@ const TermsConditions = () => {
         </div>
 
         <div data-aos="fade-right">
-          <p class="text-xl mb-4 font-bold">Intellectual Property Rights:</p>
-          <p class="text-xl">
+          <p className="text-lg sm:text-xl mb-4 font-bold">Intellectual Property Rights:</p>
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
             The Service and its original content, features, and functionality
             are and will remain the exclusive property of BareNexus Consultants
             Pvt. Ltd. and its licensors. The Service is protected by copyright,
@@ -55,8 +71,8 @@ const TermsConditions = () => {
         </div>
 
         <div data-aos="fade-up">
-          <p class="text-xl mb-4 font-bold">Links to Other Websites:</p>
-          <p class="text-xl">
+          <p className="text-lg sm:text-xl mb-4 font-bold">Links to Other Websites:</p>
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
             Our Service may contain links to third-party websites or services
             that are not owned or controlled by BareNexus Consultants. BareNexus
             Consultants has no control over, and assumes no responsibility for,
@@ -71,8 +87,8 @@ const TermsConditions = () => {
         </div>
 
         <div data-aos="fade-left">
-          <p class="text-xl mb-4 font-bold">Termination:</p>
-          <p class="text-xl">
+          <p className="text-lg sm:text-xl mb-4 font-bold">Termination:</p>
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
             We may terminate or suspend access to our Service immediately,
             without prior notice or liability, for any reason whatsoever,
             including without limitation if you breach the Terms. All provisions
@@ -84,9 +100,8 @@ const TermsConditions = () => {
         </div>
 
         <div data-aos="fade-up">
-          <p class="text-xl mb-4 font-bold">Governing Law:</p>
-          <p class="text-xl">
-            {" "}
+          <p className="text-lg sm:text-xl mb-4 font-bold">Governing Law:</p>
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
             These Terms shall be governed and construed in accordance with the
             laws of Delhi (India), without regard to its conflict of law
             provisions.
@@ -94,8 +109,8 @@ const TermsConditions = () => {
         </div>
 
         <div data-aos="fade-right">
-          <p class="text-xl mb-4 font-bold">Changes:</p>
-          <p class="text-xl">
+          <p className="text-lg sm:text-xl mb-4 font-bold">Changes:</p>
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
             We reserve the right, at our sole discretion, to modify or replace
             these Terms at any time. If a revision is material, we will try to
             provide at least 30 days notice prior to any new terms taking
@@ -105,15 +120,15 @@ const TermsConditions = () => {
         </div>
 
         <div data-aos="fade-up">
-          <p class="text-xl mb-4 font-bold">Contact Us:</p>
-          <p class="text-xl">
-            {" "}
+          <p className="text-lg sm:text-xl mb-4 font-bold">Contact Us:</p>
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
             If you have any questions about these Terms, please contact us at
             barenexus.official@gmail.com
           </p>
         </div>
-        <div class="flex flex-col gap-8">
-          <p class="text-xl">
+
+        <div className="flex flex-col gap-8" data-aos="fade-up">
+          <p className="text-base sm:text-lg lg:text-xl leading-relaxed">
             By accessing or using the Service, you agree to be bound by these
             Terms. If you do not agree to these Terms, please do not access or
             use the Service.
