@@ -59,12 +59,12 @@ const About = () => {
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                  />
+            />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Our Vision
-              </h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Our Vision
+            </h3>
             </div>
             <p className="text-gray-700 leading-relaxed">
               To be the most trusted partner for businesses worldwide by
@@ -92,12 +92,12 @@ const About = () => {
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M13 10V3L4 14h7v7l9-11h-7z"
-                  />
+            />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Our Mission
-              </h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              Our Mission
+            </h3>
             </div>
             <ul className="text-gray-700 space-y-3">
               <li className="flex items-start" data-aos="fade-up">
@@ -135,7 +135,7 @@ const About = () => {
             {sectors.map((sector, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-tr from-gray-100 to-gray-200 hover:from-blue-100 hover:to-purple-100 p-4 rounded-lg shadow-sm hover:shadow-md transform hover:scale-105 transition-all duration-300 cursor-default"
+                className="bg-gradient-to-tr from-gray-100 to-gray-200 hover:from-slate-100 hover:to-blue-100 p-4 rounded-lg shadow-sm hover:shadow-md transform hover:scale-105 transition-all duration-300 cursor-default"
                 data-aos="fade-up"
                 data-aos-delay={index * 100}
               >

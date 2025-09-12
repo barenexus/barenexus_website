@@ -5,6 +5,7 @@
     "icon": "👥",
     "features": [
       "Recruitment Process Outsourcing",
+      "Talent Acquisition",
       "Staff Augmentation",
       "Payroll Services"
     ],
@@ -15,10 +16,10 @@
     "description": "Cutting-edge IT solutions for digital transformation",
     "icon": "💻",
     "features": [
-      "DevOps",
-      "Solution Architecture",
       "Web & App Development",
-      "UI/UX"
+      "UI/UX",
+      "DevOps",
+      "Solution Architecture"
     ],
     "gradient": "from-purple-500 to-purple-600"
   },
@@ -27,9 +28,10 @@
     "description": "Strategic marketing to amplify your digital presence",
     "icon": "📱",
     "features": [
-      "Social Media Advertising",
-      "SEO Optimization",
-      "Content Marketing"
+      "Social Media Marketing",
+      "Social Media Optimization",
+      "Content Marketing",
+      "Google ADS"
     ],
     "gradient": "from-green-500 to-green-600"
   },
@@ -38,9 +40,10 @@
     "description": "Strategic guidance to drive business excellence",
     "icon": "📊",
     "features": [
-      "Financial Advisory",
-      "Operations Optimization",
-      "Strategic Consulting"
+      "Financial & Compliance Advisory Solution",
+      "Strategic & Management Consulting",
+      "Business Development Solutions",
+      "PR Services"
     ],
     "gradient": "from-orange-500 to-orange-600"
   }

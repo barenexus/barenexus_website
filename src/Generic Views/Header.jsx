@@ -23,7 +23,9 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-gradient-to-r from-white/90 to-gray-100/90"
+        scrolled
+          ? "bg-white/95 backdrop-blur-md shadow-lg"
+          : "bg-gradient-to-r from-white/90 to-gray-100/90"
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,29 +100,33 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden animate-fadeIn">
-            <nav className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
+          <div className="md:hidden absolute top-16 left-0 right-0 z-30 animate-fadeIn">
+            <nav className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white/95 backdrop-blur-md shadow-lg rounded-b-lg">
               <Link
                 to="/"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium capitalize transition-all duration-200"
               >
                 Home
               </Link>
               <Link
                 to="/services"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium capitalize transition-all duration-200"
               >
                 Services
               </Link>
               <Link
                 to="/about"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium capitalize transition-all duration-200"
               >
                 About
               </Link>
               <Link
                 to="/contact"
-                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium w-full text-left capitalize transition-all duration-200"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium capitalize transition-all duration-200"
               >
                 Contact Us
               </Link>
