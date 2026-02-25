@@ -5,7 +5,7 @@ import "../App.css";
 import { getClientsData } from "../services/dataServices";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import TrustedLogos from "../Components/TrustedLogos";
+// import TrustedLogos from "../Components/TrustedLogos";
 
 const Home = () => {
   useEffect(() => {
@@ -17,7 +17,7 @@ const Home = () => {
       <_Home_ />
       <About />
       <Services />
-      <TrustedLogos />
+      <Clients />
       <Contact />
     </div>
   );
