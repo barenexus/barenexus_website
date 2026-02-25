@@ -36,6 +36,18 @@
     "gradient": "from-green-500 to-green-600"
   },
   {
+    "title": "GIS Maping Services",
+    "description": "Precision Mapping for Smarter Planning",
+    "icon": "📱",
+    "features": [
+      "Google Map Editing",
+      "2D & 3D Feature Extraction",
+      "Layer's Creation",
+      "Visualization & Maping"
+    ],
+    "gradient": "from-green-500 to-green-600"
+  },
+  {
     "title": "Business Consulting Solutions",
     "description": "Strategic guidance to drive business excellence",
     "icon": "📊",

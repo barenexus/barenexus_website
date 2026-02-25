@@ -45,6 +45,12 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <nav className="ml-10 flex items-baseline space-x-8">
+            <Link
+                to="/"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-200 capitalize"
+              >
+                Home
+              </Link>
               <Link
                 to="/about"
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-200 capitalize"

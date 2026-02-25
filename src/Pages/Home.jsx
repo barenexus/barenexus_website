@@ -5,6 +5,7 @@ import "../App.css";
 import { getClientsData } from "../services/dataServices";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import TrustedLogos from "../Components/TrustedLogos";
 
 const Home = () => {
   useEffect(() => {
@@ -16,7 +17,7 @@ const Home = () => {
       <_Home_ />
       <About />
       <Services />
-      <Clients />
+      <TrustedLogos />
       <Contact />
     </div>
   );
@@ -27,56 +28,108 @@ const _Home_ = () => {
   return (
     <section
       id="home"
-      className="relative w-full min-h-screen bg-cover bg-center flex items-center justify-center"
-      style={{ backgroundImage: "url('/Home_BG_Image.jpg')" }}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      <div className="absolute inset-0 bg-black/60"></div>
-      <div className="relative z-10 flex flex-col items-center text-center text-white px-4">
+
+      {/* Background GIF */}
+      <img
+        src="/Home_BG_Image.jpg"
+        className="absolute inset-0 w-full h-full object-cover"
+        alt="background"
+      />
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/70"></div>
+
+
+      {/* Content */}
+      <div className="relative z-10 text-center text-white px-6">
+
         <h1
-          className="text-4xl sm:text-6xl font-extrabold drop-shadow-lg"
           data-aos="fade-up"
+          className="text-5xl md:text-7xl font-bold mb-6"
         >
-          Welcome to{" "}
-          <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+          Transform Your Business With{" "}
+          <span className="text-blue-400">
             BareNexus
           </span>
         </h1>
+
+
         <p
-          className="mt-4 text-lg sm:text-2xl font-medium max-w-2xl"
           data-aos="fade-up"
           data-aos-delay="200"
+          className="text-xl md:text-2xl mb-8 text-gray-200"
         >
-          Your Reliable Consultants for Strategic Development
+          Strategic Consulting • IT Solutions • Growth Acceleration
         </p>
+
+
         <div
-          className="flex flex-col sm:flex-row gap-4 mt-8"
           data-aos="zoom-in"
           data-aos-delay="400"
+          className="flex flex-wrap justify-center gap-6"
         >
+
           <button
             onClick={() =>
               document
                 .getElementById("contact")
                 .scrollIntoView({ behavior: "smooth" })
             }
-            className="px-8 py-4 bg-gradient-to-r from-blue-700 to-blue-800 text-white rounded-lg text-lg font-semibold shadow-lg hover:from-blue-800 hover:to-blue-900 transform hover:scale-105 transition-all duration-300"
+            className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-xl text-lg font-semibold transition"
           >
-            Get Started Today
+            Get Started
           </button>
+
+
           <button
             onClick={() =>
               document
                 .getElementById("services")
                 .scrollIntoView({ behavior: "smooth" })
             }
-            className="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg text-lg font-semibold hover:bg-blue-600 hover:text-white transform hover:scale-105 transition-all duration-300"
+            className="border border-white px-8 py-4 rounded-xl hover:bg-white hover:text-black transition"
           >
-            Our Services
+            Explore Services
           </button>
+
         </div>
+
       </div>
+
     </section>
   );
+  // return (
+
+  //   <section className="relative h-screen flex items-center justify-center">
+    
+  //   <img
+  //   src="/Home_BG_Image.jpg"
+  //   className="absolute w-full h-full object-cover"
+  //   />
+    
+  //   <div className="absolute inset-0 bg-black/70"/>
+    
+  //   <div className="relative text-center text-white">
+    
+  //   <h1 className="text-6xl font-bold mb-6">
+  //   Transform Your Business
+  //   </h1>
+    
+  //   <p className="text-xl mb-8">
+  //   Premium IT & Business Consulting Solutions
+  //   </p>
+    
+  //   <button className="bg-blue-600 px-8 py-4 rounded-xl hover:scale-110 transition">
+  //   Get Started
+  //   </button>
+    
+  //   </div>
+    
+  //   </section>
+    
+  //   );
 };
 
 // About Home Component
