@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getFormData } from "../services/dataServices";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const [formData, setFormData] = useState({});
@@ -23,34 +24,27 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const res = await fetch("https://barenexus-website.onrender.com/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      let result = {};
-      try {
-        result = await res.json();
-      } catch {
-        console.error("Server did not return valid JSON");
-      }
-
-      if (res.ok && result.success) {
-        alert("✅ Thank you! We’ll be in touch soon.");
-        setFormData({ name: "", email: "", company: "", message: "" });
-      } else {
-        alert("⚠️ " + (result.error || `Unexpected response: ${res.status}`));
-      }
-    } catch (err) {
-      console.error("Form submission failed:", err);
-      alert("❌ Failed to send message. Please try again later.");
-    }
+  
+    emailjs.send(
+      "service_mcs9ux9",
+      "template_v24zt8e",
+      {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+      },
+      "246FNW8tt9SxjvkU3"
+    )
+    .then(() => {
+      alert("Message sent successfully!");
+    })
+    .catch(() => {
+      alert("Failed to send message");
+    });
   };
-
   return (
     <section
       id="contact"
