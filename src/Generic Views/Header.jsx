@@ -69,6 +69,12 @@ const Header = () => {
               >
                 Contact Us
               </Link>
+              <Link
+                to="/careers"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-all duration-200 capitalize"
+              >
+                Careers
+              </Link>
             </nav>
           </div>
 
@@ -135,6 +141,13 @@ const Header = () => {
                 className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium capitalize transition-all duration-200"
               >
                 Contact Us
+              </Link>
+              <Link
+                to="/careers"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium capitalize transition-all duration-200"
+              >
+                Careers
               </Link>
             </nav>
           </div>
