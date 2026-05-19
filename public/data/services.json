@@ -36,6 +36,18 @@
     "gradient": "from-green-500 to-green-600"
   },
   {
+    "title": "Business Operations & Customer Assistance",
+    "description": "Scalable support solutions tailored to optimize customer interactions and backend workflows.",
+    "icon": "💻",
+    "features": [
+      "24/7 customer assistance operations",
+      "CRM management & data updates",
+      "Invoice and billing support",
+      "MIS reporting and operational support"
+    ],
+    "gradient": "from-purple-500 to-purple-600"
+  },
+  {
     "title": "GIS Maping Services",
     "description": "Precision Mapping for Smarter Planning",
     "icon": "📱",
